@@ -71,25 +71,7 @@ cp .env.example server/.env
 ```
 Key defaults are pre-configured for local developer environments.
 
-### 3. Running the Server & Client
 
-Open two terminal sessions:
-
-**Terminal 1 (Backend Server):**
-```bash
-npm run dev:server
-# Server boots on http://localhost:5000
-```
-
-**Terminal 2 (Frontend Client):**
-```bash
-npm run dev:client
-# Vite dev server boots on http://localhost:5173
-```
-
-Navigate your browser to `http://localhost:5173`.
-
----
 
 ## 👥 Demo Personas & Instant Login
 
