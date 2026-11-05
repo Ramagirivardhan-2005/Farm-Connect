@@ -1,0 +1,531 @@
+// Realistic high-quality seed data for FarmConnect Marketplace
+
+export const MOCK_CHANNELS = [
+  {
+    id: 'chan-1',
+    channelId: 'FC-CH-00001245',
+    name: 'Sahyadri Organic Orchards & Greens',
+    farmerName: 'Ramesh Patil',
+    farmerId: 'usr-farm-1',
+    location: 'Junnar, Pune District, Maharashtra',
+    state: 'Maharashtra',
+    district: 'Pune',
+    rating: 4.9,
+    reviewsCount: 420,
+    subscribersCount: 3120,
+    status: 'ACTIVE',
+    bio: 'Family-owned biodynamic and organic farm cultivating heritage heirloom vegetables and sweet Alphonso mangoes since 1994. Verified 100% natural, zero chemical pesticides.',
+    bannerImage: 'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1200&q=80',
+    profileImage: 'https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=300&q=80',
+    farmingType: 'Organic & ZBNF',
+    experience: '28 Years',
+    isPinned: true,
+    isSubscribed: true,
+    featuredProducts: ['Vine Tomatoes', 'Baby Spinach', 'Seedless Papaya', 'Country Carrots'],
+    externalLinks: {
+      website: 'https://sahyadri-organics.example.com',
+      instagram: 'https://instagram.com/sahyadriorganics',
+      youtube: 'https://youtube.com/@sahyadriorchards'
+    },
+    achievements: [
+      { year: 2022, title: 'State Krishi Ratna Award for Sustainable Organic Farming' },
+      { year: 2020, title: 'Zero Waste Circular Farming Certification by APEDA' }
+    ],
+    certifications: [
+      { name: 'NPOP Organic India Certification', issuedBy: 'Aditi Organic Certifications', number: 'ORG-2023-8812' },
+      { name: 'Jaivik Bharat Quality Mark', issuedBy: 'FSSAI', number: 'JB-MH-9921' }
+    ]
+  },
+  {
+    id: 'chan-2',
+    channelId: 'FC-CH-00001389',
+    name: 'GreenValley Hydroponic Innovations',
+    farmerName: 'Ananya Deshmukh',
+    farmerId: 'usr-farm-2',
+    location: 'Nashik Valley, Maharashtra',
+    state: 'Maharashtra',
+    district: 'Nashik',
+    rating: 4.8,
+    reviewsCount: 295,
+    subscribersCount: 2450,
+    status: 'ACTIVE',
+    bio: 'Pioneering nutrient-rich, clean hydroponic cultivation using reverse-osmosis water and controlled climate greenhouse chambers. Crunchy greens delivered within hours of harvest.',
+    bannerImage: 'https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=1200&q=80',
+    profileImage: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80',
+    farmingType: 'Hydroponic',
+    experience: '7 Years',
+    isPinned: false,
+    isSubscribed: true,
+    featuredProducts: ['Romaine Lettuce', 'English Cucumbers', 'Cherry Tomatoes', 'Genovese Basil'],
+    certifications: [
+      { name: 'FSSAI Clean Produce Accreditation', issuedBy: 'Food Safety Authority', number: 'FSS-2024-1102' }
+    ]
+  },
+  {
+    id: 'chan-3',
+    channelId: 'FC-CH-00001502',
+    name: 'Kaveri Basin Natural Agro Farms',
+    farmerName: 'Murugan Sundaram',
+    farmerId: 'usr-farm-3',
+    location: 'Erode, Tamil Nadu',
+    state: 'Tamil Nadu',
+    district: 'Erode',
+    rating: 4.7,
+    reviewsCount: 380,
+    subscribersCount: 1980,
+    status: 'ACTIVE',
+    bio: 'Traditional multi-tier agroforestry farm cultivating turmeric, tender coconut, native bananas, and heritage greens along the fertile Kaveri river banks.',
+    bannerImage: 'https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&w=1200&q=80',
+    profileImage: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80',
+    farmingType: 'Natural / ZBNF',
+    experience: '22 Years',
+    isPinned: false,
+    isSubscribed: false,
+    featuredProducts: ['Salem Turmeric Root', 'Red Banana', 'Tender Coconut', 'Moringa Leaves']
+  },
+  {
+    id: 'chan-4',
+    channelId: 'FC-CH-00001640',
+    name: 'Malwa Sun-Drenched Vegetable Estate',
+    farmerName: 'Baldev Singh Gill',
+    farmerId: 'usr-farm-4',
+    location: 'Indore outskirts, Madhya Pradesh',
+    state: 'Madhya Pradesh',
+    district: 'Indore',
+    rating: 4.6,
+    reviewsCount: 184,
+    subscribersCount: 1250,
+    status: 'ACTIVE',
+    bio: 'Specialist growers of premium potatoes, sweet red onions, garlic, and winter root vegetables nurtured in rich black cotton soil.',
+    bannerImage: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80',
+    profileImage: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80',
+    farmingType: 'Organic',
+    experience: '16 Years',
+    isPinned: false,
+    isSubscribed: false,
+    featuredProducts: ['Red Onions', 'Chipsona Potatoes', 'Garlic Bulbs', 'Green Peas']
+  }
+];
+
+export const MOCK_PRODUCTS = [
+  {
+    id: 'prod-1',
+    name: 'Farm Fresh Organic Vine Tomatoes',
+    category: 'Nightshades',
+    type: 'Nightshades',
+    farmingType: 'Organic',
+    qualityGrade: 'A',
+    price: 60,
+    originalPrice: 75,
+    unit: 'KG',
+    minOrder: 1,
+    minSellingUnit: 1,
+    availableStock: 240,
+    totalStock: 400,
+    soldStock: 160,
+    purchaseCount: 1248,
+    rating: 4.8,
+    reviewsCount: 182,
+    harvestDate: 'Today, 6:00 AM',
+    shelfLife: '6 Days (Store cool)',
+    description: 'Freshly harvested vine-ripened organic tomatoes grown in fertile black soil without synthetic pesticides. Juicy, firm flesh with the perfect balance of sweetness and acidity.',
+    tasteProfile: 'Rich umami sweetness with mild citrus zing',
+    cultivationMethod: 'Natural composting, drip irrigation, drip-fed jeevamrutha',
+    soilType: 'Black loamy soil rich in organic humus',
+    images: [
+      'https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1546470427-e26264be0b11?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=800&q=80'
+    ],
+    channel: {
+      id: 'chan-1',
+      channelId: 'FC-CH-00001245',
+      name: 'Sahyadri Organic Orchards & Greens',
+      farmerName: 'Ramesh Patil',
+      location: 'Pune District, Maharashtra',
+      rating: 4.9,
+    }
+  },
+  {
+    id: 'prod-2',
+    name: 'Crisp Hydroponic Baby Spinach',
+    category: 'Leafy Greens',
+    type: 'Leafy Greens',
+    farmingType: 'Hydroponic',
+    qualityGrade: 'A+',
+    price: 45,
+    originalPrice: 55,
+    unit: 'Bundle',
+    minOrder: 1,
+    minSellingUnit: 1,
+    availableStock: 180,
+    totalStock: 250,
+    soldStock: 70,
+    purchaseCount: 890,
+    rating: 4.9,
+    reviewsCount: 140,
+    harvestDate: 'Morning Harvest',
+    shelfLife: '5 Days',
+    description: 'Grown in pesticide-free, temperature-controlled greenhouses. Crisp, tender leaves rich in iron and dietary antioxidants. Washed in purified water and packed in breathable craft pouches.',
+    tasteProfile: 'Mild, sweet, and crisp without bitterness',
+    cultivationMethod: 'NFT (Nutrient Film Technique) Hydroponics',
+    images: [
+      'https://images.unsplash.com/photo-1576045057995-568f588f82fb?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80'
+    ],
+    channel: {
+      id: 'chan-2',
+      channelId: 'FC-CH-00001389',
+      name: 'GreenValley Hydroponic Innovations',
+      farmerName: 'Ananya Deshmukh',
+      location: 'Nashik Valley, Maharashtra',
+      rating: 4.8,
+    }
+  },
+  {
+    id: 'prod-3',
+    name: 'Golden Native Alphonso Mangoes (Carbide-Free)',
+    category: 'Fruits',
+    type: 'Fruits',
+    farmingType: 'Natural / ZBNF',
+    qualityGrade: 'A+',
+    price: 650,
+    originalPrice: 800,
+    unit: 'Dozen',
+    minOrder: 1,
+    minSellingUnit: 1,
+    availableStock: 85,
+    totalStock: 200,
+    soldStock: 115,
+    purchaseCount: 520,
+    rating: 5.0,
+    reviewsCount: 210,
+    harvestDate: 'Tree Matured Yesterday',
+    shelfLife: '8 Days at room temp',
+    description: 'World-famous Konkan GI-tagged Alphonso mangoes ripened naturally in hay beds. Golden yellow skin with saffron-colored pulp and an unforgettable intoxicating floral aroma.',
+    tasteProfile: 'Velvety sweet saffron flavor with exotic honey undertones',
+    cultivationMethod: 'Natural rain-fed coastal laterite soil orchards',
+    images: [
+      'https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?auto=format&fit=crop&w=800&q=80'
+    ],
+    channel: {
+      id: 'chan-1',
+      channelId: 'FC-CH-00001245',
+      name: 'Sahyadri Organic Orchards & Greens',
+      farmerName: 'Ramesh Patil',
+      location: 'Pune District, Maharashtra',
+      rating: 4.9,
+    }
+  },
+  {
+    id: 'prod-4',
+    name: 'Crunchy Malwa Red Onions',
+    category: 'Root Vegetables',
+    type: 'Root Vegetables',
+    farmingType: 'Organic',
+    qualityGrade: 'A',
+    price: 35,
+    originalPrice: 42,
+    unit: 'KG',
+    minOrder: 2,
+    minSellingUnit: 1,
+    availableStock: 520,
+    totalStock: 1000,
+    soldStock: 480,
+    purchaseCount: 3410,
+    rating: 4.7,
+    reviewsCount: 310,
+    harvestDate: 'Sun-cured 2 days ago',
+    shelfLife: '30 Days in dry storage',
+    description: 'High-pungency, tight-skinned red onions with long storage life. Ideal for traditional Indian gravies, tadkas, and raw salads.',
+    tasteProfile: 'Pungent, sweet, and intensely aromatic',
+    images: [
+      'https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1508747703725-719777637510?auto=format&fit=crop&w=800&q=80'
+    ],
+    channel: {
+      id: 'chan-4',
+      channelId: 'FC-CH-00001640',
+      name: 'Malwa Sun-Drenched Vegetable Estate',
+      farmerName: 'Baldev Singh Gill',
+      location: 'Madhya Pradesh',
+      rating: 4.6,
+    }
+  },
+  {
+    id: 'prod-5',
+    name: 'Fresh Farm Green Bell Peppers (Capsicum)',
+    category: 'Nightshades',
+    type: 'Nightshades',
+    farmingType: 'Organic',
+    qualityGrade: 'A',
+    price: 70,
+    originalPrice: 85,
+    unit: 'KG',
+    minOrder: 1,
+    minSellingUnit: 0.5,
+    availableStock: 140,
+    totalStock: 300,
+    soldStock: 160,
+    purchaseCount: 650,
+    rating: 4.7,
+    reviewsCount: 95,
+    harvestDate: 'Fresh Morning Pluck',
+    shelfLife: '7 Days in refrigerator',
+    description: 'Glossy, thick-walled green capsicum with crisp juicy crunch. Grown under protective shade nets to avoid sunburn and pest attacks.',
+    images: [
+      'https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?auto=format&fit=crop&w=800&q=80'
+    ],
+    channel: {
+      id: 'chan-1',
+      channelId: 'FC-CH-00001245',
+      name: 'Sahyadri Organic Orchards & Greens',
+      farmerName: 'Ramesh Patil',
+      location: 'Pune District, Maharashtra',
+      rating: 4.9,
+    }
+  },
+  {
+    id: 'prod-6',
+    name: 'Sweet Tender Kaveri Green Coconuts',
+    category: 'Fruits',
+    type: 'Fruits',
+    farmingType: 'Natural / ZBNF',
+    qualityGrade: 'A+',
+    price: 55,
+    originalPrice: 65,
+    unit: 'Piece',
+    minOrder: 2,
+    minSellingUnit: 1,
+    availableStock: 95,
+    totalStock: 250,
+    soldStock: 155,
+    purchaseCount: 1420,
+    rating: 4.9,
+    reviewsCount: 280,
+    harvestDate: 'Harvested Today',
+    shelfLife: '10 Days',
+    description: 'Filled with 400ml+ of naturally chilled, electrolyte-rich sweet water and delicate coconut malai.',
+    images: [
+      'https://images.unsplash.com/photo-1525385133512-2f3bdd039054?auto=format&fit=crop&w=800&q=80'
+    ],
+    channel: {
+      id: 'chan-3',
+      channelId: 'FC-CH-00001502',
+      name: 'Kaveri Basin Natural Agro Farms',
+      farmerName: 'Murugan Sundaram',
+      location: 'Erode, Tamil Nadu',
+      rating: 4.7,
+    }
+  }
+];
+
+export const MOCK_ORDERS = [
+  {
+    id: 'ord-101',
+    orderId: 'ORD-2026-91823',
+    createdAt: '2026-09-18T06:30:00.000Z',
+    expectedDeliveryDate: '2026-09-20T17:00:00.000Z',
+    status: 'IN_TRANSIT',
+    totalAmount: 255,
+    subtotal: 215,
+    deliveryFee: 40,
+    paymentMethod: 'Secure Purse Wallet',
+    isPaid: true,
+    items: [
+      { name: 'Farm Fresh Organic Vine Tomatoes', quantity: 2, price: 60, unit: 'KG' },
+      { name: 'Crisp Hydroponic Baby Spinach', quantity: 1, price: 45, unit: 'Bundle' },
+      { name: 'Crunchy Malwa Red Onions', quantity: 1, price: 35, unit: 'KG' }
+    ],
+    farmerChannel: {
+      channelId: 'FC-CH-00001245',
+      name: 'Sahyadri Organic Orchards & Greens',
+      farmerName: 'Ramesh Patil',
+      contact: '+91 94231 77654',
+      location: 'Pune District, Maharashtra'
+    },
+    deliveryPartner: {
+      id: 'del-1',
+      name: 'Suresh Express Rider',
+      phone: '+91 98220 11988',
+      vehicle: 'Electric Cargo Scooter (MH-14-EF-9201)',
+      rating: 4.9,
+      completedDeliveries: 342,
+    },
+    deliveryAddress: {
+      fullName: 'Ramagiri Vardhan',
+      mobile: '+91 98765 43210',
+      house: 'Flat 402, Green Meadows',
+      street: 'Kothrud Hill View Road',
+      city: 'Pune',
+      district: 'Pune',
+      state: 'Maharashtra',
+      pincode: '411038'
+    }
+  },
+  {
+    id: 'ord-102',
+    orderId: 'ORD-2026-91740',
+    createdAt: '2026-09-17T14:15:00.000Z',
+    expectedDeliveryDate: '2026-09-18T16:00:00.000Z',
+    status: 'READY_FOR_PICKUP',
+    totalAmount: 690,
+    subtotal: 650,
+    deliveryFee: 40,
+    paymentMethod: 'UPI / NetBanking',
+    isPaid: true,
+    items: [
+      { name: 'Golden Native Alphonso Mangoes', quantity: 1, price: 650, unit: 'Dozen' }
+    ],
+    farmerChannel: {
+      channelId: 'FC-CH-00001245',
+      name: 'Sahyadri Organic Orchards & Greens',
+      farmerName: 'Ramesh Patil',
+      location: 'Pune District, Maharashtra'
+    },
+    deliveryAddress: {
+      fullName: 'Ramagiri Vardhan',
+      mobile: '+91 98765 43210',
+      house: 'Flat 402, Green Meadows',
+      street: 'Kothrud Hill View Road',
+      city: 'Pune',
+      district: 'Pune',
+      state: 'Maharashtra',
+      pincode: '411038'
+    }
+  },
+  {
+    id: 'ord-103',
+    orderId: 'ORD-2026-91501',
+    createdAt: '2026-09-15T09:00:00.000Z',
+    expectedDeliveryDate: '2026-09-17T12:00:00.000Z',
+    status: 'DELIVERED',
+    totalAmount: 165,
+    subtotal: 125,
+    deliveryFee: 40,
+    paymentMethod: 'Secure Purse Wallet',
+    isPaid: true,
+    items: [
+      { name: 'Fresh Farm Green Bell Peppers', quantity: 1, price: 70, unit: 'KG' },
+      { name: 'Sweet Tender Kaveri Green Coconuts', quantity: 1, price: 55, unit: 'Piece' }
+    ],
+    farmerChannel: {
+      channelId: 'FC-CH-00001502',
+      name: 'Kaveri Basin Natural Agro Farms',
+      farmerName: 'Murugan Sundaram',
+      location: 'Erode, Tamil Nadu'
+    },
+    deliveryAddress: {
+      fullName: 'Ramagiri Vardhan',
+      mobile: '+91 98765 43210',
+      house: 'Flat 402, Green Meadows',
+      street: 'Kothrud Hill View Road',
+      city: 'Pune',
+      district: 'Pune',
+      state: 'Maharashtra',
+      pincode: '411038'
+    }
+  }
+];
+
+export const MOCK_WALLET_TRANSACTIONS = [
+  {
+    id: 'tx-1',
+    txId: 'TXN-99821034',
+    type: 'CREDIT',
+    amount: 2000,
+    reference: 'Added funds via UPI AutoPay',
+    timestamp: '2026-09-17T10:00:00Z',
+    status: 'SUCCESS'
+  },
+  {
+    id: 'tx-2',
+    txId: 'TXN-99821035',
+    type: 'DEBIT',
+    amount: 255,
+    reference: 'Payment for Order ORD-2026-91823',
+    timestamp: '2026-09-18T06:30:00Z',
+    status: 'SUCCESS'
+  },
+  {
+    id: 'tx-3',
+    txId: 'TXN-99818810',
+    type: 'REFUND',
+    amount: 120,
+    reference: 'Harvest surplus refund for Order ORD-2026-91400',
+    timestamp: '2026-09-14T11:20:00Z',
+    status: 'SUCCESS'
+  }
+];
+
+export const MOCK_TRANSACTIONS = MOCK_WALLET_TRANSACTIONS;
+
+export const MOCK_BANNERS = [
+  {
+    id: 'ban-1',
+    channelId: 'FC-CH-00001245',
+    channelName: 'Sahyadri Organic Orchards & Greens',
+    farmerName: 'Ramesh Patil',
+    title: 'Monsoon Fresh Harvest Fest: 20% Off Heirloom Vine Tomatoes',
+    description: 'Harvested daily at 6 AM. 100% pesticide-free vine tomatoes at farm-gate prices.',
+    offerCode: 'MONSOON20',
+    discountPercent: 20,
+    image: 'https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=1200&q=80',
+    status: 'ACTIVE',
+    startDate: '2026-09-15',
+    endDate: '2026-10-30',
+    viewsCount: 1420,
+    clicksCount: 295,
+  },
+  {
+    id: 'ban-2',
+    channelId: 'FC-CH-00001389',
+    channelName: 'GreenValley Hydroponic Innovations',
+    farmerName: 'Ananya Deshmukh',
+    title: 'Crisp Hydroponic Salad Box: Flat ₹50 Cashback on First Box',
+    description: 'Zero pesticide, RO-water clean hydroponic greens delivered within 4 hours of harvest.',
+    offerCode: 'HYDRO50',
+    discountPercent: 15,
+    image: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1200&q=80',
+    status: 'PENDING_APPROVAL',
+    startDate: '2026-10-01',
+    endDate: '2026-11-15',
+    viewsCount: 0,
+    clicksCount: 0,
+  },
+  {
+    id: 'ban-3',
+    channelId: 'FC-CH-00001402',
+    channelName: 'Deccan Heirloom Pulses & Grains',
+    farmerName: 'Balwantrao Shinde',
+    title: 'Heritage Desi Toor Dal Season Opening — Flat 10% Off 5KG Sacks',
+    description: 'Stone-milled, unpolished natural desi pulses direct from Maharashtra highlands.',
+    offerCode: 'DESITOOR10',
+    discountPercent: 10,
+    image: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=1200&q=80',
+    status: 'ACTIVE',
+    startDate: '2026-09-20',
+    endDate: '2026-11-01',
+    viewsCount: 890,
+    clicksCount: 160,
+  },
+  {
+    id: 'ban-4',
+    channelId: 'FC-CH-00001550',
+    channelName: 'Malwa Organic Herbals & Spices',
+    farmerName: 'Gopal Krishna Verma',
+    title: 'Fresh Wild Turmeric & Ginger Roots: Buy 2KG Get 500g Free',
+    description: 'Sun-dried natural spice roots from chemical-free organic polyhouse farms.',
+    offerCode: 'SPICEROOTS',
+    discountPercent: 25,
+    image: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=1200&q=80',
+    status: 'REJECTED',
+    rejectionReason: 'Banner image text overlays exceeded quality guidelines.',
+    startDate: '2026-09-01',
+    endDate: '2026-09-15',
+    viewsCount: 0,
+    clicksCount: 0,
+  }
+];
+

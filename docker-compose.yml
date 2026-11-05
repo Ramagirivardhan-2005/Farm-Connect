@@ -1,0 +1,141 @@
+version: '3.8'
+
+services:
+  # ==============================================================================
+  # 1. MySQL 8: Transactional Source of Truth
+  # ==============================================================================
+  mysql:
+    image: mysql:8.0
+    container_name: farmconnect-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD:-Vardhan@2005}
+      MYSQL_DATABASE: farmconnect
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - farmconnect-net
+
+  # ==============================================================================
+  # 2. MongoDB 6: Flexible Content & High-Volume Social Store
+  # ==============================================================================
+  mongodb:
+    image: mongo:6.0
+    container_name: farmconnect-mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - farmconnect-net
+
+  # ==============================================================================
+  # 3. Redis 7: Low-Latency Cache & Rate Limiting
+  # ==============================================================================
+  redis:
+    image: redis:7-alpine
+    container_name: farmconnect-redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - farmconnect-net
+
+  # ==============================================================================
+  # 4. RabbitMQ 3: Asynchronous Event Processing & Dead-Letter Queue
+  # ==============================================================================
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: farmconnect-rabbitmq
+    restart: always
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER:-guest}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASS:-guest}
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "check_running"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - farmconnect-net
+
+  # ==============================================================================
+  # 5. FarmConnect Backend (Spring Boot 3 + Java 21)
+  # ==============================================================================
+  backend:
+    build:
+      context: ./server-spring
+      dockerfile: Dockerfile
+    container_name: farmconnect-backend
+    restart: always
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/farmconnect?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&characterEncoding=UTF-8
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: ${MYSQL_PASSWORD:-Vardhan@2005}
+      SPRING_DATA_MONGODB_URI: mongodb://mongodb:27017/farmconnect_content
+      SPRING_DATA_REDIS_HOST: redis
+      SPRING_DATA_REDIS_PORT: 6379
+      FARMCONNECT_REDIS_ENABLED: "true"
+      SPRING_RABBITMQ_HOST: rabbitmq
+      SPRING_RABBITMQ_PORT: 5672
+      FARMCONNECT_RABBITMQ_ENABLED: "true"
+      JWT_SECRET: ${JWT_SECRET:-super_secure_access_token_secret_min_32_chars_long_1234}
+      CLOUDINARY_CLOUD_NAME: ${CLOUDINARY_CLOUD_NAME:-du4dnrnyl}
+      CLOUDINARY_API_KEY: ${CLOUDINARY_API_KEY:-674469296634457}
+      CLOUDINARY_API_SECRET: ${CLOUDINARY_API_SECRET:-TruW01dJXsfXmfrgIyzIBrTYEg0}
+      RAZORPAY_KEY_ID: ${RAZORPAY_KEY_ID:-rzp_test_placeholder_key}
+      RAZORPAY_KEY_SECRET: ${RAZORPAY_KEY_SECRET:-rzp_test_placeholder_secret}
+    ports:
+      - "5000:5000"
+    depends_on:
+      mysql:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+      mongodb:
+        condition: service_started
+      redis:
+        condition: service_started
+    networks:
+      - farmconnect-net
+
+  # ==============================================================================
+  # 6. FarmConnect Client (React Vite / Nginx)
+  # ==============================================================================
+  frontend:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: farmconnect-frontend
+    restart: always
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+    networks:
+      - farmconnect-net
+
+volumes:
+  mysql_data:
+  mongo_data:
+  redis_data:
+  rabbitmq_data:
+
+networks:
+  farmconnect-net:
+    driver: bridge
